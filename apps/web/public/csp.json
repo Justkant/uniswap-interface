@@ -23,7 +23,8 @@
     "'self'",
     "https://buy.moonpay.com/",
     "https://verify.walletconnect.com/",
-    "https://verify.walletconnect.org/"
+    "https://verify.walletconnect.org/",
+    "http://localhost:1234/"
   ],
   "connectSrc": [
     "'self'",

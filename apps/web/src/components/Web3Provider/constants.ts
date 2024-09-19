@@ -1,11 +1,13 @@
 import GNOSIS_ICON from 'assets/images/gnosis.png'
 import COINBASE_ICON from 'assets/wallets/coinbase-icon.svg'
+import LEDGER_ICON from 'assets/wallets/ledger-icon.svg'
 import METAMASK_ICON from 'assets/wallets/metamask-icon.svg'
 import UNIWALLET_ICON from 'assets/wallets/uniswap-wallet-icon.png'
 import WALLET_CONNECT_ICON from 'assets/wallets/walletconnect-icon.svg'
 import { atomWithStorage, useAtomValue } from 'jotai/utils'
 
 export const CONNECTION = {
+  LEDGER_LIVE_WEB_CONNECTOR_ID: 'ledgerLiveWeb',
   WALLET_CONNECT_CONNECTOR_ID: 'walletConnect',
   UNISWAP_WALLET_CONNECT_CONNECTOR_ID: 'uniswapWalletConnect',
   INJECTED_CONNECTOR_ID: 'injected',
@@ -18,6 +20,7 @@ export const CONNECTION = {
 } as const
 
 export const CONNECTOR_ICON_OVERRIDE_MAP: { [id in string]?: string } = {
+  [CONNECTION.LEDGER_LIVE_WEB_CONNECTOR_ID]: LEDGER_ICON,
   [CONNECTION.METAMASK_RDNS]: METAMASK_ICON,
   [CONNECTION.UNISWAP_WALLET_CONNECT_CONNECTOR_ID]: UNIWALLET_ICON,
   [CONNECTION.COINBASE_SDK_CONNECTOR_ID]: COINBASE_ICON,

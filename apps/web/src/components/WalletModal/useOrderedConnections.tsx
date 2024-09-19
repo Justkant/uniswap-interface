@@ -97,7 +97,8 @@ export function useOrderedConnections(excludeUniswapConnections?: boolean): Inje
       CONNECTION.UNISWAP_WALLET_CONNECT_CONNECTOR_ID,
       SHOULD_THROW,
     )
-    if (!coinbaseSdkConnector || !walletConnectConnector || !uniswapWalletConnectConnector) {
+    const ledgerLiveWebConnector = getConnectorWithId(connectors, CONNECTION.LEDGER_LIVE_WEB_CONNECTOR_ID, SHOULD_THROW)
+    if (!coinbaseSdkConnector || !walletConnectConnector || !uniswapWalletConnectConnector || !ledgerLiveWebConnector) {
       throw new Error('Expected connector(s) missing from wagmi context.')
     }
 
@@ -123,6 +124,7 @@ export function useOrderedConnections(excludeUniswapConnections?: boolean): Inje
     orderedConnectors.push(...injectedConnectors)
 
     // WalletConnect and Coinbase are added last in the list.
+    orderedConnectors.push(ledgerLiveWebConnector)
     orderedConnectors.push(walletConnectConnector)
     orderedConnectors.push(coinbaseSdkConnector)
 

@@ -9,6 +9,7 @@ import { createClient } from 'viem'
 import { createConfig, http } from 'wagmi'
 import { connect } from 'wagmi/actions'
 import { coinbaseWallet, injected, safe, walletConnect } from 'wagmi/connectors'
+import { ledgerLiveWeb } from './ledgerLiveWeb'
 
 declare module 'wagmi' {
   interface Register {
@@ -23,6 +24,7 @@ export const wagmiConfig = createConfig({
   ],
   connectors: [
     injectedWithFallback(),
+    ledgerLiveWeb(),
     walletConnect(WC_PARAMS),
     uniswapWalletConnect(),
     coinbaseWallet({
